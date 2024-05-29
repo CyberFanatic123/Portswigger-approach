@@ -1,3 +1,5 @@
+Entity - variable declaration
+SYSTEM is similar to  src
 XML external entity
 - Allows attacker to interfere with application's processing of XML data.
 - Allows attacker to view files on application server filesystem and to interact with any back-end or external systems that the application itself can access.
@@ -5,7 +7,9 @@ XML external entity
 How it arise:
 - Application use XML format to transmit data between the browser and server.
 
-
+Place to try:
+- File  uploads
+- 
 ### Lab: Exploiting XXE using external entities to retrieve files
 - If "Check stock" feature that parses XML input and returns any unexpected values in the response.
 - Intercepting the **POST** request, and inserting in between XML declaration 
