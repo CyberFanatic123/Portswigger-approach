@@ -1,6 +1,37 @@
+It is **server-side attack**
+Attacker exploits discrepancies in the interpretation of HTTP requests between two or more devices (typically a front-end server and a back-end server).
+
+
 - Web apps employ chains of HTTP servers b/w users and application logic.
 - Users send req to front-end server(i.e load balancer or reverse proxy) and this server send forward reqs to one or more back-end servers.
 - Attacker 
+
+
+## Conditions:
+- **Presence of Proxy Servers**: Architecture involves multiple servers, such as front-end proxies (e.g., load balancers) and back-end servers.
+
+## Verification:
+- Manually by using burp repeater, changing CL and body, adding TE
+- Automatic using Burp Suite's HTTP request smuggling scanner
+
+## Testing:
+- **CL.TE**: Send a request with both `Content-Length` and `Transfer-Encoding: chunked` headers to see if the servers handle the request differently.
+- **TE.CL**: Send a chunked request followed by a content-length request to observe any discrepancies.
+**Responses**- such as misaligned responses, split responses, or unexpected errors, indicates possible request smuggling.
+
+
+
+## Impact
+- bypassing security controls
+- unauthorized access
+- information disclosure
+- Interference with other users' requests (e.g., hijacking sessions).
+- 
+
+## Mitigation:
+- Configure servers to reject requests with both `Content-Length` and `Transfer-Encoding` headers or to prioritize one over the other consistently.
+- WAF's can prevent it.
+- 
 
 # Exploiting HTTP request smuggling to deliver reflected XSS
 - While inspecting the response of the Post Comment page, noticed that `userAgent` is hidden in html tag.
