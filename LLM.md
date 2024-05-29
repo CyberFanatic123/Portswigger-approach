@@ -1,10 +1,14 @@
 - Large Language Model
 
+Attack:
+- Attack that take advantage of the model's access to data, APIs, or user information that 
+
 - Other LLM's
 	- Google - PaLM 2
 	- Meta - LLaMa (open source)
 
 LLM appraches RLHF - Reinforcement Learning with Human Feedback
+Similar to SSRF as attacker is abusing a server-side system to launch attacks on a separate component that is not directly accessible.
 
 
 # Detecting LLM vulnerabilities
